@@ -9,3 +9,11 @@
 .content>mat-card{
     width: 200px;
 }
+
+.routerLinkSong {
+    cursor: pointer;
+}
+
+.routerLinkSong:hover {
+    text-decoration: underline;
+}
