@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { MatCardModule } from '@angular/material/card'
+
 import { SongsRoutingModule } from './songs-routing.module';
 import { SongsComponent } from './songs.component';
 
@@ -9,7 +11,8 @@ import { SongsComponent } from './songs.component';
   declarations: [SongsComponent],
   imports: [
     CommonModule,
-    SongsRoutingModule
+    SongsRoutingModule,
+    MatCardModule
   ]
 })
 export class SongsModule { }
