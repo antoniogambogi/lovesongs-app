@@ -1,21 +1,5 @@
-<div *ngFor="let musica of Musicas">
-    <mat-card class="example-card">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>{{musica.nome}}</mat-card-title>
-          <mat-card-subtitle>{{musica.banda.nome}}</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image [src]="musica.video" alt="Photo of {{musica.nome}}">
-        <mat-card-content>
-          <p>
-            {{musica.letra}}
-          </p>
-        </mat-card-content>
-        <!-- <mat-card-actions>
-          <button mat-button>LIKE</button>
-          <button mat-button>SHARE</button>
-        </mat-card-actions> -->
-      </mat-card>
+<div class="content" fxLayout="row wrap" fxLayoutGap="16px grid">
+  <div fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="50%" *ngFor="let musica of Musicas">
+    <app-song-card [Musica]="musica"></app-song-card>
+  </div>
 </div>
-
-

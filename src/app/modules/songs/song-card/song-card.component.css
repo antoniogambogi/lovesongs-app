@@ -1,0 +1,11 @@
+.band-image {
+    background-size: cover;
+}
+
+.songPoster-image {
+    height: 390px;
+}
+
+.content>mat-card{
+    width: 200px;
+}
