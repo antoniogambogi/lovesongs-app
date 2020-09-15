@@ -4,7 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms'
 
 import { MatCardModule } from '@angular/material/card'
 import { FlexLayoutModule } from '@angular/flex-layout'
-import { MatButton, MatButtonModule } from '@angular/material/button'
+import { MatButtonModule } from '@angular/material/button'
 import { MatDialogModule} from '@angular/material/dialog'
 import { MatStepperModule } from '@angular/material/stepper'
 import { MatFormFieldModule } from '@angular/material/form-field'
