@@ -8,6 +8,7 @@ import { SongsRoutingModule } from './songs-routing.module';
 import { SongsComponent } from './songs.component';
 import { SongCardComponent } from './song-card/song-card.component';
 import { SongDetailComponent } from './song-detail/song-detail.component';
+import { ComponentsModule } from './../../components/components.module'
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { SongDetailComponent } from './song-detail/song-detail.component';
     CommonModule,
     SongsRoutingModule,
     MatCardModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    ComponentsModule
   ]
 })
 export class SongsModule { }
