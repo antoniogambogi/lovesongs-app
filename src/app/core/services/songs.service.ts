@@ -9,9 +9,13 @@ import { API_URL } from './../api'
 })
 export class SongsService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  findAllSongs(): Observable<HttpResponse<Musica[]>>{
-    return this.http.get<Musica[]>(`${API_URL}/musica/listarTodas`, {observe: 'response'})
+  findAllSongs(): Observable<HttpResponse<Musica[]>> {
+    return this.http.get<Musica[]>(`${API_URL}/musica/listarTodas`, { observe: 'response' })
+  }
+
+  findSongByName(songName: String): Observable<HttpResponse<Musica>> {
+    return this.http.get<Musica>(`${API_URL}/musica/listarUma/${songName}`, { observe: 'response' })
   }
 }

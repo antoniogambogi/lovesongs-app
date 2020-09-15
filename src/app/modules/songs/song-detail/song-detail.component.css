@@ -1,0 +1,40 @@
+.content {
+    padding: 10px;
+}
+
+.songCover {
+    height: 400px;
+    max-width: 400px;
+}
+
+.bandImage {
+    background-size: cover;
+}
+
+.bandName {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-left: -20px;
+}
+
+.mat-elevation-z3 {
+    margin-top: 10px;    
+}
+
+.uppercase-text{
+    text-transform: uppercase;
+}
+
+.songInfo {
+    font-size: 14px;
+    color: lightyellow;
+}
+
+.songInfoBold {
+    color: lightyellow
+}
+
+.songLetters {
+    text-align: justify;
+    text-justify: inter-word;
+}
