@@ -2,7 +2,7 @@
     <mat-card-header>
         <img mat-card-avatar class="band-image" [src]="Musica.banda.imagem">
       <mat-card-title>{{Musica.banda.nome}}</mat-card-title>
-      <mat-card-subtitle>{{Musica.album}}</mat-card-subtitle>
+      <mat-card-subtitle>{{Musica.banda.genero}}</mat-card-subtitle>
     </mat-card-header>
     <img mat-card-image [routerLink]="['/songs/detail', Musica.nome]" class="songPoster-image routerLinkSong"[src]="Musica.video" alt="Vídeo da música {{Musica.nome}}">
     <mat-card-content>
