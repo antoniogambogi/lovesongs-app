@@ -15,14 +15,16 @@ import { SongsRoutingModule } from './songs-routing.module';
 import { SongsComponent } from './songs.component';
 import { SongCardComponent } from './song-card/song-card.component';
 import { SongDetailComponent } from './song-detail/song-detail.component';
-import { ComponentsModule } from './../../components/components.module'
+import { ComponentsModule } from './../../components/components.module';
+import { NewSongComponent } from './new-song/new-song.component'
 
 
 @NgModule({
   declarations: [
     SongsComponent,
     SongCardComponent,
-    SongDetailComponent
+    SongDetailComponent,
+    NewSongComponent
   ],
   imports: [
     CommonModule,

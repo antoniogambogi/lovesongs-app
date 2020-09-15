@@ -1,5 +1,8 @@
 <app-loading *ngIf="!Musicas"></app-loading>
 <div *ngIf="Musicas" class="content" fxLayout="row wrap" fxLayoutGap="16px grid">
+  <div fxFlex="100%" fxFlex="100%" fxFlex="100%">
+    <button mat-flat-button color="primary" (click)="openNewSongModal()">Adicionar música</button>
+  </div>
   <div fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="50%" *ngFor="let musica of Musicas">
     <app-song-card [Musica]="musica"></app-song-card>
   </div>
