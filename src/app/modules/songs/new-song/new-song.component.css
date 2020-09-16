@@ -17,3 +17,15 @@
 .button:hover {
     background-color: rgb(111, 0, 145);
 }
+
+.select-band {
+    font-size: 13px;
+    cursor: pointer;
+    color: rgb(130, 130, 130);
+}
+
+.select-band:hover {
+    font-size: 13px;
+    text-decoration: underline;
+    color: rgb(98,122,255);
+}
