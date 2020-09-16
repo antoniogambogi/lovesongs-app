@@ -38,9 +38,16 @@ export class SongsComponent implements OnInit, OnDestroy {
 
   openNewSongModal(): void {
     const dialogRef = this.dialog.open(NewSongComponent, {
-      width: '700px',
-      height: '550px',
+      width: '650px',
+      height: '600px',
       disableClose: true
+    })
+
+    dialogRef.afterClosed().subscribe(NewSongadded => {
+      if(NewSongadded){
+        this.Musicas = undefined
+        this.findAllSongs()
+      }
     })
   }
 
