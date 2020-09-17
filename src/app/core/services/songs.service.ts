@@ -18,4 +18,8 @@ export class SongsService {
   findSongByName(songName: String): Observable<HttpResponse<Musica>> {
     return this.http.get<Musica>(`${API_URL}/musica/listarUma/${songName}`, { observe: 'response' })
   }
+
+  createNewSong(body: Musica): Observable<HttpResponse<Musica>>{
+    return this.http.post<Musica>(`${API_URL}/musica/criar`, body, {observe: 'response'})
+  }
 }

@@ -10,6 +10,8 @@ import { MatStepperModule } from '@angular/material/stepper'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { MatSelectModule } from '@angular/material/select'
+import { MatDatepickerModule } from '@angular/material/datepicker'
+import { MatNativeDateModule } from '@angular/material/core'
  
 import { SongsRoutingModule } from './songs-routing.module';
 import { SongsComponent } from './songs.component';
@@ -38,7 +40,14 @@ import { NewSongComponent } from './new-song/new-song.component'
     MatStepperModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
+  ],
+
+  providers: [
+    MatDatepickerModule,
+    MatNativeDateModule
   ]
 })
 export class SongsModule { }

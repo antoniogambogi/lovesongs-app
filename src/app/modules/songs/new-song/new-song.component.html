@@ -30,9 +30,41 @@
             </mat-form-field>
         </form>
         <div class="form-element">
-            <button class="button" color="primary" mat-button (click)="nextStep()" matStepperNext 
-            [disabled]="bandFormGroup.invalid">Próximo</button>
+            <button class="button" color="primary" mat-button (click)="nextStep()" matStepperNext
+                [disabled]="bandFormGroup.invalid">Próximo</button>
         </div>
+    </mat-step>
+    <!-- COM ERRO DAQUI PRA BAIXO -->
+    <mat-step [stepControl]="songFormGroup" editable="false">
+        <form [formGroup]="songFormGroup" class="form">
+            <ng-template matStepLabel>Musica</ng-template>
+            <mat-form-field class="form-element">
+                <mat-label>Nome</mat-label>
+                <input matInput formControlName="nome" placeholder="Nome" required>
+            </mat-form-field>
+            <mat-form-field class="form-element">
+                <mat-label>Video</mat-label>
+                <input matInput formControlName="video" placeholder="Video" required>
+            </mat-form-field>
+            <mat-form-field class="form-element">
+                <mat-label>Album</mat-label>
+                <input matInput formControlName="album" placeholder="Link da imagem">
+            </mat-form-field>
+            <mat-form-field class="form-element">
+                <mat-label>Letra</mat-label>
+                <textarea matInput formControlName="letra" placeholder="Letra"></textarea>
+            </mat-form-field>
+            <mat-form-field class="form-element">
+                <mat-label>Data de lançamento</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="anoMusica">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <div class="form-element">
+                <button class="button" color="primary" mat-button [mat-dialog-close]="true"
+                    [disabled]="songFormGroup.invalid" (click)="createNewSong()">Adicionar Música</button>
+            </div>
+        </form>
     </mat-step>
 </mat-horizontal-stepper>
 <div class="form-element">
