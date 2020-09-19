@@ -1,7 +1,7 @@
 import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
-// import { CdkTextareaAutosize } from '@angular/cdk/text-field'
+import { CdkTextareaAutosize } from '@angular/cdk/text-field'
 import { Subscription } from 'rxjs'
 import { Banda } from './../../../core/models/banda.model'
 import { BandsService } from './../../../core/services/bands.service'
@@ -23,7 +23,7 @@ export class NewSongComponent implements OnInit, OnDestroy {
   stepBandLabel: String = 'Banda'
   songFormGroup: FormGroup
 
-  // @ViewChild('autosize') autosize: CdkTextareaAutosize
+  @ViewChild('autosize') autosize: CdkTextareaAutosize
 
   constructor(
     private bandsService: BandsService,
