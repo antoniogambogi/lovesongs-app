@@ -24,7 +24,7 @@
                 <span class="songInfo"><b class="songInfoBold">Albúm:</b> {{Musica.album}}</span>
                 <br>
                 <span *ngIf="Musica.anoMusica" class="songInfo"><b class="songInfoBold">Lançamento:
-                    </b>{{Musica.anoMusica | date: 'yyyy'}}</span>
+                    </b>{{Musica.anoMusica | date: 'dd/MM/yyyy'}}</span>
             </div>
             <div class="row">
                 <p class="songLetters">{{Musica.letra}}</p>
