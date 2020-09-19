@@ -7,7 +7,8 @@
         </mat-card>
         <mat-card class="mat-elevation-z3">
             <mat-card-header>
-                <img mat-card-avatar class="bandImage" [src]="Musica.banda.imagem" alt="Photo of {{Musica.banda.nome}}">
+                <img mat-card-avatar class="bandImage" [src]="Musica.banda.imagem"
+                    onError="this.src='./../../../../assets/img/rnr.png'" alt="Photo of {{Musica.banda.nome}}">
                 <div class="bandName">{{Musica.banda.nome}}</div>
             </mat-card-header>
         </mat-card>
