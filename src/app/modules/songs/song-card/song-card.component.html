@@ -1,7 +1,11 @@
 <mat-card class="mat-elevation-z4">
     <mat-card-header>
-        <img mat-card-avatar class="band-image" [src]="Musica.banda.imagem">
+        <img mat-card-avatar class="band-image" [src]="Musica.banda.imagem" 
+        onError="this.src='./../../../../assets/img/rnr.png'">
       <mat-card-title>{{Musica.banda.nome}}</mat-card-title>
+      <br>
+      <br>
+      <br>
       <mat-card-subtitle>{{Musica.banda.genero}}</mat-card-subtitle>
     </mat-card-header>
     <img mat-card-image [routerLink]="['/songs/detail', Musica.nome]" class="songPoster-image routerLinkSong"[src]="Musica.video" alt="Vídeo da música {{Musica.nome}}">
