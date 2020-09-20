@@ -2,6 +2,7 @@ import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { CdkTextareaAutosize } from '@angular/cdk/text-field'
+import { MatDialogRef } from '@angular/material/dialog'
 import { Subscription } from 'rxjs'
 import { Banda } from './../../../core/models/banda.model'
 import { BandsService } from './../../../core/services/bands.service'
@@ -29,7 +30,8 @@ export class NewSongComponent implements OnInit, OnDestroy {
     private bandsService: BandsService,
     private builder: FormBuilder,
     private toastr: MyToastrService,
-    private songsService: SongsService
+    private songsService: SongsService,
+    private dialogRef: MatDialogRef<NewSongComponent>
   ) { }
 
   ngOnInit(): void {
@@ -108,8 +110,14 @@ export class NewSongComponent implements OnInit, OnDestroy {
   createNewSong(): void {
     this.httpRequest = this.songsService.createNewSong(this.songFormGroup.value).subscribe(response =>{
       this.toastr.showToastrSuccess(`A música ${response.body['data']['nome']} foi adicionada som sucesso`)
+      this.dialogRef.close(true)
     }, err => {
       this.toastr.showToastrError(`${err.error['message']}`)
+      this.dialogRef.close(false)
     })
+  }
+
+  closeDialog(): void {
+    this.dialogRef.close(false)
   }
 }
