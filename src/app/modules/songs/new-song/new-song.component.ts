@@ -8,6 +8,7 @@ import { Banda } from './../../../core/models/banda.model'
 import { BandsService } from './../../../core/services/bands.service'
 import { MyToastrService } from './../../../core/services/toastr.service'
 import { SongsService } from './../../../core/services/songs.service'
+import * as moment from 'moment'
 
 @Component({
   selector: 'app-new-song',
@@ -108,6 +109,7 @@ export class NewSongComponent implements OnInit, OnDestroy {
   }
 
   createNewSong(): void {
+    this.setDateFormattedOnSongForm(this.songFormGroup.value['anoMusica'])
     this.httpRequest = this.songsService.createNewSong(this.songFormGroup.value).subscribe(response =>{
       this.toastr.showToastrSuccess(`A música ${response.body['data']['nome']} foi adicionada som sucesso`)
       this.dialogRef.close(true)
@@ -119,5 +121,12 @@ export class NewSongComponent implements OnInit, OnDestroy {
 
   closeDialog(): void {
     this.dialogRef.close(false)
+  }
+
+  setDateFormattedOnSongForm(value: string): void{
+    if(value){
+      let dateFormatted: string = moment.utc(value).local().format('YYYY-MM-DD')
+      this.songFormGroup.controls['anoMusica'].setValue(dateFormatted)
+    }
   }
 }
