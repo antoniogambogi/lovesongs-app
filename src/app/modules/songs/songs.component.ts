@@ -14,6 +14,7 @@ export class SongsComponent implements OnInit, OnDestroy {
 
   private httpRequest: Subscription
   Musicas: Musica[]
+  hasError: boolean = false
 
   constructor(
     private songsService: SongsService,
@@ -32,7 +33,7 @@ export class SongsComponent implements OnInit, OnDestroy {
     this.httpRequest = this.songsService.findAllSongs().subscribe(response => {
       this.Musicas = response.body['data']
     }, err => {
-      console.log(err)
+      this.hasError = true
     })
   }
 

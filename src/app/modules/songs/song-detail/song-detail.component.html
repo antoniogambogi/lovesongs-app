@@ -1,5 +1,6 @@
-<app-loading *ngIf="!Musica"></app-loading>
-<div *ngIf="Musica" class="content" fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="start center"
+<app-loading *ngIf="!Musica && !hasError"></app-loading>
+<app-error *ngIf="Musica && hasError"></app-error>
+<div *ngIf="Musica && !hasError" class="content" fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="start center"
     fxLayoutAlign.gt-sm="center start" fxLayoutGap="16px">
     <div fxFlex="50%" fxFlex.gt-sm="25%">
         <mat-card class="mat-elevation-z0">

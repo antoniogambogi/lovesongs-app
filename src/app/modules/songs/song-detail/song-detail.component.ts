@@ -13,6 +13,7 @@ export class SongDetailComponent implements OnInit, OnDestroy {
 
   private httpRequest: Subscription
   Musica: Musica
+  hasError: boolean = false
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -33,7 +34,7 @@ export class SongDetailComponent implements OnInit, OnDestroy {
       this.Musica = response.body['data']
 
     }, err =>{
-      console.log(err)
+      this.hasError = true
     })
   }
 }
