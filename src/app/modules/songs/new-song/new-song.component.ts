@@ -8,6 +8,8 @@ import { Banda } from './../../../core/models/banda.model'
 import { BandsService } from './../../../core/services/bands.service'
 import { MyToastrService } from './../../../core/services/toastr.service'
 import { SongsService } from './../../../core/services/songs.service'
+import { BandValidator } from './../../../core/validators/banda.validator'
+import { SongValidator } from './../../../core/validators/musica.validator'
 import * as moment from 'moment'
 
 @Component({
@@ -32,7 +34,9 @@ export class NewSongComponent implements OnInit, OnDestroy {
     private builder: FormBuilder,
     private toastr: MyToastrService,
     private songsService: SongsService,
-    private dialogRef: MatDialogRef<NewSongComponent>
+    private dialogRef: MatDialogRef<NewSongComponent>,
+    private bandValidator: BandValidator,
+    private songValidator: SongValidator
   ) { }
 
   ngOnInit(): void {
@@ -61,7 +65,7 @@ export class NewSongComponent implements OnInit, OnDestroy {
 
   initializeNewBandFormGroup(): void {
     this.bandFormGroup = this.builder.group({
-      nome: this.builder.control(null, [Validators.required]),
+      nome: this.builder.control(null, [Validators.required], this.bandValidator.validatorUniqueBandName()),
       genero: this.builder.control(null),
       imagem: this.builder.control(null)
     })
@@ -69,7 +73,7 @@ export class NewSongComponent implements OnInit, OnDestroy {
 
   initializeSongFormGroup(): void {
     this.songFormGroup = this.builder.group({
-      nome: this.builder.control(null, [Validators.required]),
+      nome: this.builder.control(null, [Validators.required], this.songValidator.validatorUniqueSongName()),
       video: this.builder.control(null, [Validators.required]),
       album: this.builder.control(null),
       anoMusica: this.builder.control(null),
@@ -128,5 +132,13 @@ export class NewSongComponent implements OnInit, OnDestroy {
       let dateFormatted: string = moment.utc(value).local().format('YYYY-MM-DD')
       this.songFormGroup.controls['anoMusica'].setValue(dateFormatted)
     }
+  }
+
+  bandNameExists(): boolean {
+    return this.bandFormGroup.get('nome').hasError('bandNameAlreadyExists')
+  }
+
+  songNameExists(): boolean {
+    return this.songFormGroup.get('nome').hasError('songNameAlreadyExists')
   }
 }

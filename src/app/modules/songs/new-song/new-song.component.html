@@ -19,6 +19,7 @@
             <mat-form-field class="form-element">
                 <mat-label>Nome</mat-label>
                 <input matInput formControlName="nome" placeholder="Nome" required>
+                <mat-error *ngIf="bandNameExists()">Já existe uma banda cadastrada com esse nome</mat-error>
             </mat-form-field>
             <mat-form-field class="form-element">
                 <mat-label>Imagem</mat-label>
@@ -39,7 +40,8 @@
             <ng-template matStepLabel>Musica</ng-template>
             <mat-form-field class="form-element">
                 <mat-label>Nome</mat-label>
-                <input matInput formControlName="nome" placeholder="Nome" required>
+                <input matInput formControlName="nome" placeholder="Nome da música" required>
+                <mat-error *ngIf="songNameExists()">Já existe uma música cadastrada com esse nome</mat-error>
             </mat-form-field>
             <mat-form-field class="form-element">
                 <mat-label>Video</mat-label>
