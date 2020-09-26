@@ -31,7 +31,7 @@
             </mat-form-field>
         </form>
         <div class="form-element">
-            <button class="button" color="primary" mat-button (click)="nextStep()" matStepperNext
+            <button mat-raised-button class="button" color="primary" mat-button (click)="nextStep()" matStepperNext
                 [disabled]="bandFormGroup.invalid">Próximo</button>
         </div>
     </mat-step>
@@ -63,7 +63,7 @@
                 <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
             <div class="form-element">
-                <button class="button" color="primary" 
+                <button mat-raised-button class="button" color="primary"
                 mat-button [disabled]="songFormGroup.invalid" (click)="createNewSong()">Adicionar Música</button>
             </div>
         </form>
