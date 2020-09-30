@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <h1>{{title}}</h1>
+        <span class="menu-spacer"></span>
+        <div class="navegacao">
+            <a mat-button [routerLink]="'/home'">Início</a>
+            <a mat-button [routerLink]="'/songs'">Ouvir músicas</a>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>    
+<div class="outlet">
+    <router-outlet></router-outlet>
+</div>

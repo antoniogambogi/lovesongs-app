@@ -1,0 +1,13 @@
+.welcome {
+    background-color: rgb(243,243,243);
+    max-width: 600px;
+    padding: 35px;
+    margin: auto;
+    border-radius: 10px 20px;
+}
+
+.welcome-content {
+    text-align: center;
+    color: #7b1fa2;
+    font-weight: bolder;
+}

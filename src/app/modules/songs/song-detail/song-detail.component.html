@@ -1,0 +1,36 @@
+<app-loading *ngIf="!Musica && !hasError"></app-loading>
+<app-error *ngIf="Musica && hasError"></app-error>
+<div *ngIf="Musica && !hasError" class="content" fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="start center"
+    fxLayoutAlign.gt-sm="center start" fxLayoutGap="16px">
+    <div fxFlex="50%" fxFlex.gt-sm="25%">
+        <mat-card class="mat-elevation-z0">
+            <img mat-card-image class="songCover" [src]="Musica.video" alt="Vídeo of a {{Musica.nome}}">
+        </mat-card>
+        <mat-card class="mat-elevation-z3">
+            <mat-card-header>
+                <img mat-card-avatar class="bandImage" [src]="Musica.banda.imagem"
+                    onError="this.src='./../../../../assets/img/rnr.png'" alt="Photo of {{Musica.banda.nome}}">
+                <div class="bandName">{{Musica.banda.nome}}</div>
+            </mat-card-header>
+        </mat-card>
+    </div>
+    <div fxFlex="50%" fxFlex.gt-sm="75%">
+        <mat-card class="mat-elevation-z0">
+            <div class="row">
+                <span class="mat-display-1 uppercase-text">{{Musica.nome}}</span>
+                <br>
+                <span class="songInfo songInfoBold"><b class="songInfoBold">Banda: </b>{{Musica.banda.nome}}</span>
+                <br>
+                <span class="songInfo"><b class="songInfoBold">Gênero: </b>{{Musica.banda.genero}}</span>
+                <br>
+                <span class="songInfo"><b class="songInfoBold">Albúm:</b> {{Musica.album}}</span>
+                <br>
+                <span *ngIf="Musica.anoMusica" class="songInfo"><b class="songInfoBold">Lançamento:
+                    </b>{{Musica.anoMusica | date: 'dd/MM/yyyy'}}</span>
+            </div>
+            <div class="row">
+                <p class="songLetters">{{Musica.letra}}</p>
+            </div>
+        </mat-card>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+.band-image {
+    background-size: cover;
+}
+
+.songPoster-image {
+    height: 390px;
+}
+
+.content>mat-card{
+    width: 200px;
+}
+
+.routerLinkSong {
+    cursor: pointer;
+}
+
+.routerLinkSong:hover {
+    text-decoration: underline;
+}
