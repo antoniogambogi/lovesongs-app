@@ -4,7 +4,6 @@ import { Musica } from './../../core/models/musica.model'
 import { SongsService } from './../../core/services/songs.service'
 import { MatDialog } from '@angular/material/dialog'
 import { NewSongComponent } from './new-song/new-song.component'
-import { NewBandComponent } from './new-band/new-band.component'
 
 @Component({
   selector: 'app-songs',
@@ -46,24 +45,9 @@ export class SongsComponent implements OnInit, OnDestroy {
     })
 
     dialogRef.afterClosed().subscribe(NewSongadded => {
-      if(NewSongadded){
+      if (NewSongadded) {
         this.Musicas = undefined
         this.findAllSongs()
-      }
-    })
-  };
-
-  openNewBandModal(): void {
-    const dialogRef = this.dialog.open(NewBandComponent, {
-      width: '650px',
-      height: '600px',
-      disableClose: true
-    })
-
-    dialogRef.afterClosed().subscribe(NewSongadded => {
-      if(NewSongadded){
-        this.Musicas = undefined
-        this.findAllSongs()  //verificar essa linha, poderia ser banda.
       }
     })
   }
