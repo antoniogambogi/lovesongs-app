@@ -1,0 +1,38 @@
+<app-loading *ngIf="!Band && !hasError"></app-loading>
+<app-error *ngIf="!Band && hasError"></app-error>
+<div *ngIf="Band && !hasError" class="content" fxLayout="row wrap" fxLayoutGap="16px grid">
+    <div fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="50%">
+        <mat-card class="mat-elevation-z0">
+            <img mat-card-image class="bandCover-image" [src]="Band.imagem"
+                onError="this.src='./../../../../../assets/img/rnr.png'" alt="Photo of a {{Band.nome}}">
+        </mat-card>
+    </div>
+    <div fxFlex="75%" fxFlex.xs="100%" fxFlex.sm="67%">
+        <mat-card class="mat-elevation-z0">
+            <div class="row">
+                <span class="mat-display-1 uppercase-text">{{Band.nome}}</span>
+                <br>
+                <div class="row">
+                    <p *ngIf="Band.genero">
+                        {{Band.genero}}
+                    </p>
+                    <p *ngIf="!Band.genero">
+                        Não foi informado o gênero da banda.
+                    </p>
+                </div>
+                <span class="aditionalInfo">{{countSongsOnBand(Band.musicas.length)}}</span>
+            </div>
+            <br>
+        </mat-card>
+    </div>
+    <!-- Div de trazer as músicas para bandas -->
+    <div>
+        <span class="mat-subheading-2 uppercase-text">{{titleSongsOnBand(Band.musicas.length)}}</span>
+        <br>
+        <div class="content" fxLayout="row wrap" fxLayoutGap="16px grid">
+            <div fxFlex="33%" fxflex.xs="100%" fxFlex.sm="50%" *ngFor="let song of Band.musicas">
+                <app-song-card [Musica]="song" [showHeader]="false"></app-song-card>
+            </div>
+        </div>
+    </div>
+</div>

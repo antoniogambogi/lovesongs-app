@@ -45,11 +45,10 @@ export class SongsComponent implements OnInit, OnDestroy {
     })
 
     dialogRef.afterClosed().subscribe(NewSongadded => {
-      if(NewSongadded){
+      if (NewSongadded) {
         this.Musicas = undefined
         this.findAllSongs()
       }
     })
   }
-
 }

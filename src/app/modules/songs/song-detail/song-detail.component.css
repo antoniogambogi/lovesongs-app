@@ -21,15 +21,6 @@
     margin-top: 10px;    
 }
 
-.uppercase-text{
-    text-transform: uppercase;
-}
-
-.songInfo {
-    font-size: 14px;
-    color: lightyellow;
-}
-
 .songInfoBold {
     color: lightyellow
 }

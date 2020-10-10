@@ -19,16 +19,13 @@ import { SongCardComponent } from './song-card/song-card.component';
 import { SongDetailComponent } from './song-detail/song-detail.component';
 import { ComponentsModule } from './../../components/components.module';
 import { NewSongComponent } from './new-song/new-song.component';
-import { NewBandComponent } from './new-band/new-band.component'
-
 
 @NgModule({
   declarations: [
     SongsComponent,
     SongCardComponent,
     SongDetailComponent,
-    NewSongComponent,
-    NewBandComponent
+    NewSongComponent
   ],
   imports: [
     CommonModule,
@@ -50,6 +47,10 @@ import { NewBandComponent } from './new-band/new-band.component'
   providers: [
     MatDatepickerModule,
     MatNativeDateModule
+  ],
+
+  exports: [
+    SongCardComponent
   ]
 })
 export class SongsModule { }

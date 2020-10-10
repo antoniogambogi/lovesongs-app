@@ -8,7 +8,7 @@
                 <mat-select formControlName="banda" required>
                     <mat-option *ngFor="let banda of bandas" [value]="banda">{{banda.nome}}</mat-option>
                 </mat-select>
-                <mat-hint class="select-band" (click)="newBand()">Não encontoru a banda desejada? Adicione uma agora!
+                <mat-hint class="select-band" (click)="newBand()">Não encontrou a banda desejada? Adicione uma agora!
                 </mat-hint>
             </mat-form-field>
         </form>

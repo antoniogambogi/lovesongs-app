@@ -26,4 +26,8 @@ export class BandsService {
     myParams = myParams.append('nome', bandName)
     return this.http.get<any>(`${API_URL}/banda/validarNomeBanda`, { params: myParams })
   }
+
+  findBandByName(bandName: String): Observable<HttpResponse<Banda>>{
+    return this.http.get<Banda>(`${API_URL}/banda/listarUma/${bandName}`, {observe: 'response'})
+  }
 }

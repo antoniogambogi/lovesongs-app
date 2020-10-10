@@ -8,9 +8,10 @@
         </mat-card>
         <mat-card class="mat-elevation-z3">
             <mat-card-header>
-                <img mat-card-avatar class="bandImage" [src]="Musica.banda.imagem"
-                    onError="this.src='./../../../../assets/img/rnr.png'" alt="Photo of {{Musica.banda.nome}}">
-                <div class="bandName">{{Musica.banda.nome}}</div>
+                <img mat-card-avatar class="bandImage routerLinkClass" [src]="Musica.banda.imagem"
+                    onError="this.src='./../../../../assets/img/rnr.png'" alt="Photo of {{Musica.banda.nome}}"
+                    [routerLink]="['/bands/detail', Musica.banda.nome]">
+                <div class="bandName routerLinkClass" [routerLink]="['/bands/detail', Musica.banda.nome]">{{Musica.banda.nome}}</div>
             </mat-card-header>
         </mat-card>
     </div>
@@ -19,11 +20,11 @@
             <div class="row">
                 <span class="mat-display-1 uppercase-text">{{Musica.nome}}</span>
                 <br>
-                <span class="songInfo songInfoBold"><b class="songInfoBold">Banda: </b>{{Musica.banda.nome}}</span>
+                <span class="aditionalInfo songInfoBold"><b class="songInfoBold">Banda: </b>{{Musica.banda.nome}}</span>
                 <br>
-                <span class="songInfo"><b class="songInfoBold">Gênero: </b>{{Musica.banda.genero}}</span>
+                <span class="aditionalInfo"><b class="songInfoBold">Gênero: </b>{{Musica.banda.genero}}</span>
                 <br>
-                <span class="songInfo"><b class="songInfoBold">Albúm:</b> {{Musica.album}}</span>
+                <span class="aditionalInfo"><b class="songInfoBold">Albúm:</b> {{Musica.album}}</span>
                 <br>
                 <span *ngIf="Musica.anoMusica" class="songInfo"><b class="songInfoBold">Lançamento:
                     </b>{{Musica.anoMusica | date: 'dd/MM/yyyy'}}</span>

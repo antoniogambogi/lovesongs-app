@@ -9,6 +9,7 @@ import { Musica } from './../../../core/models/musica.model'
 export class SongCardComponent implements OnInit {
 
   @Input() Musica: Musica
+  @Input() showHeader: boolean = true
 
   constructor() { }
 
