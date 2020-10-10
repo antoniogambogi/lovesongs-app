@@ -42,15 +42,15 @@ export class BandsComponent implements OnInit, OnDestroy {
     })
   }
 
-  OpenNewBandModal(): void {
+  openNewBandModal(): void {
     const dialogRef = this.dialog.open(NewBandComponent, {
       disableClose: true,
       width: '650px',
-      height: '600'
+      height: '600px'
     })
 
     dialogRef.afterClosed().subscribe(newBandAdded => {
-      if(newBandAdded){
+      if (newBandAdded) {
         this.bands = undefined
         this.findAllBands()
       }

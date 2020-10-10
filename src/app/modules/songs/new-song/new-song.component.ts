@@ -119,12 +119,12 @@ export class NewSongComponent implements OnInit, OnDestroy {
       this.dialogRef.close(true)
     }, err => {
       this.toastr.showToastrError(`${err.error['message']}`)
-      this.dialogRef.close(false)
+      this.dialogRef.close()
     })
   }
 
-  closeDialog(): void {
-    this.dialogRef.close(false)
+  closeDialog(b: boolean = false): void {
+    this.dialogRef.close(b)
   }
 
   setDateFormattedOnSongForm(value: string): void{
