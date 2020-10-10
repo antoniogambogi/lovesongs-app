@@ -2,7 +2,7 @@
 <app-error *ngIf="!bands && hasError"></app-error>
 <div *ngIf="bands && !hasError" class="content" fxLayout="row wrap" fxLayoutGap="16px grid">
     <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
-        <!-- <button mat-flat-button color="primary" (click)="openNewBandModal()">Adicionar diretor</button> -->
+        <button class="botoes" mat-flat-button color="primary" (click)="openNewBandModal()">Adicionar banda</button>
     </div>
     <div fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="50%" *ngFor="let band of bands">
         <app-band-card [Band]="band"></app-band-card>

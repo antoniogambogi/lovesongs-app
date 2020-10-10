@@ -1,8 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { Banda } from 'src/app/core/models/banda.model';
 import { BandsService } from 'src/app/core/services/bands.service';
 import { MyToastrService } from 'src/app/core/services/toastr.service';
+import { NewBandComponent } from './new-band/new-band.component';
 
 @Component({
   selector: 'app-bands',
@@ -19,7 +21,8 @@ export class BandsComponent implements OnInit, OnDestroy {
 
   constructor(
     private service: BandsService,
-    private toastr: MyToastrService
+    private toastr: MyToastrService,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -39,5 +42,19 @@ export class BandsComponent implements OnInit, OnDestroy {
     })
   }
 
+  OpenNewBandModal(): void {
+    const dialogRef = this.dialog.open(NewBandComponent, {
+      disableClose: true,
+      width: '650px',
+      height: '600'
+    })
+
+    dialogRef.afterClosed().subscribe(newBandAdded => {
+      if(newBandAdded){
+        this.bands = undefined
+        this.findAllBands()
+      }
+    })
+  }
 }
 
