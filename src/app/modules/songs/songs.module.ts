@@ -47,6 +47,10 @@ import { NewSongComponent } from './new-song/new-song.component';
   providers: [
     MatDatepickerModule,
     MatNativeDateModule
+  ],
+
+  exports: [
+    SongCardComponent
   ]
 })
 export class SongsModule { }
