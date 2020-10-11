@@ -28,4 +28,13 @@ export class SongsService {
     myParams = myParams.append('nome', songName)
     return this.http.get<any>(`${API_URL}/musica/validarNomeMusica`, { params: myParams })
   }
+
+  //update vem aquiiii
+  deleteSongById(songId: String): Observable<HttpResponse<Musica>>{
+    return this.http.delete<Musica>(`${API_URL}/musica/apagar/${songId}`, { observe: 'response' })
+  }
+
 }
+
+
+
