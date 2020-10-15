@@ -26,10 +26,10 @@
         </mat-select>
     </mat-form-field>
     <div class="form-element">
-        <button class="button" color="primary" mat-button [disabled]="songFormGroup.invalid" 
+        <button mat-raised-button class="button" color="primary" mat-button [disabled]="songFormGroup.invalid" 
         (click)="updateSong()">Atualizar música</button>
     </div>
     <div class="form-element">
-        <button class="button" color="warn" mat-button (click)="closeDialog()">Fechar</button>
+        <button mat-raised-button class="button" color="primary" mat-button (click)="closeDialog()">Fechar</button>
     </div>
 </form>
