@@ -12,6 +12,7 @@ import { MatInputModule } from '@angular/material/input'
 import { MatSelectModule } from '@angular/material/select'
 import { MatDatepickerModule } from '@angular/material/datepicker'
 import { MatNativeDateModule } from '@angular/material/core'
+import { MatIconModule } from '@angular/material/icon'
  
 import { SongsRoutingModule } from './songs-routing.module';
 import { SongsComponent } from './songs.component';
@@ -19,13 +20,15 @@ import { SongCardComponent } from './song-card/song-card.component';
 import { SongDetailComponent } from './song-detail/song-detail.component';
 import { ComponentsModule } from './../../components/components.module';
 import { NewSongComponent } from './new-song/new-song.component';
+import { UpdateSongComponent } from './update-song/update-song.component';
 
 @NgModule({
   declarations: [
     SongsComponent,
     SongCardComponent,
     SongDetailComponent,
-    NewSongComponent
+    NewSongComponent,
+    UpdateSongComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +44,8 @@ import { NewSongComponent } from './new-song/new-song.component';
     MatInputModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatIconModule
   ],
 
   providers: [

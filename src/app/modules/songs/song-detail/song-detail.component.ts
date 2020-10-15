@@ -4,7 +4,7 @@ import {Subscription} from 'rxjs'
 import { SongsService } from './../../../core/services/songs.service'
 import { Musica } from './../../../core/models/musica.model'
 import { MatDialog } from '@angular/material/dialog';
-// update songComponent
+import { UpdateSongComponent } from './../update-song/update-song.component'
 import { ConfirmComponent } from 'src/app/components/confirm/confirm.component'
 import { MyToastrService } from 'src/app/core/services/toastr.service';
 
@@ -19,6 +19,7 @@ export class SongDetailComponent implements OnInit, OnDestroy {
   private httpRequest: Subscription
   Musica: Musica
   hasError: boolean = false
+  songName: String
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -29,8 +30,8 @@ export class SongDetailComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    const songName = this.activatedRoute.snapshot.params['songName']
-    this.findSongByName(songName)
+    this.songName = this.activatedRoute.snapshot.params['songName']
+    this.findSongByName(this.songName)
   }
 
   ngOnDestroy(): void{
@@ -46,8 +47,22 @@ export class SongDetailComponent implements OnInit, OnDestroy {
     })
   }
 
-  // MODAL DE UPDATE FILME
-  // Dialog REF
+  openUpdateSongModal(): void {
+    const dialogRef = this.dialog.open(UpdateSongComponent, {
+      disableClose: true,
+      width: '650px',
+      height: '600px',
+      data: this.Musica
+    })
+
+    dialogRef.afterClosed().subscribe(updatedSong => {
+      if(updatedSong){
+        this.Musica = undefined
+        this.findSongByName(this.songName)
+      }
+    })
+
+  }
 
   openConfirmModal(): void {
     const dialogRef = this.dialog.open(ConfirmComponent, {
