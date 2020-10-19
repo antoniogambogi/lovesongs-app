@@ -11,7 +11,7 @@ import { MyToastrService } from 'src/app/core/services/toastr.service';
   templateUrl: './update-band.component.html',
   styleUrls: ['./update-band.component.css']
 })
-export class UpdateBandComponent implements OnInit, OnDestroy {
+export class UpdateBandComponent implements OnInit {
 
   private httpRequest: Subscription
 
@@ -29,22 +29,11 @@ export class UpdateBandComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.findAllBands()
     this.initializeBandFormGroup()
     this.populateBandFormGroup()
   }
 
-  ngOnDestroy(): void {
-    this.httpRequest.unsubscribe()
-  }
-
-  findAllBands(): void {
-    this.httpRequest = this.bandsService.findAllBands().subscribe(response => {
-      this.Band = response.body['data']
-    }, err => {
-      this.toastr.showToastrError(`${err.status} - ${err.error['message']}`)
-    })
-  }
+  //ngOnDestroy removido
 
   initializeBandFormGroup(): void {
     this.bandFormGroup = this.builder.group({
@@ -67,6 +56,7 @@ export class UpdateBandComponent implements OnInit, OnDestroy {
   }
 
   updateBand(): void {
+    console.log(this.Band)
     this.httpRequest = this.bandsService.updateBandById(this.Band['_id'], this.bandFormGroup.value).subscribe(response => {
       this.toastr.showToastrSuccess(`A banda ${this.Band['nome']} foi atualizada com sucesso`)
       this.dialogRef.close(true)
