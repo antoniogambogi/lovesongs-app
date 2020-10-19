@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router'
-import {Subscription} from 'rxjs'
+import { Subscription } from 'rxjs'
 import { SongsService } from './../../../core/services/songs.service'
 import { Musica } from './../../../core/models/musica.model'
 import { MatDialog } from '@angular/material/dialog';
@@ -34,15 +34,15 @@ export class SongDetailComponent implements OnInit, OnDestroy {
     this.findSongByName(this.songName)
   }
 
-  ngOnDestroy(): void{
+  ngOnDestroy(): void {
     this.httpRequest.unsubscribe
   }
 
-  findSongByName(songName: String): void{
+  findSongByName(songName: String): void {
     this.httpRequest = this.songsService.findSongByName(songName).subscribe(response => {
       this.Musica = response.body['data']
 
-    }, err =>{
+    }, err => {
       this.hasError = true
     })
   }
@@ -56,7 +56,7 @@ export class SongDetailComponent implements OnInit, OnDestroy {
     })
 
     dialogRef.afterClosed().subscribe(updatedSong => {
-      if(updatedSong){
+      if (updatedSong) {
         this.Musica = undefined
         this.findSongByName(this.songName)
       }
@@ -73,17 +73,17 @@ export class SongDetailComponent implements OnInit, OnDestroy {
     })
 
     dialogRef.afterClosed().subscribe(confirmed => {
-      if(confirmed){
+      if (confirmed) {
         this.deleteSong(this.Musica['_id'])
       }
     })
   }
 
-  deleteSong(songId: String): void{
+  deleteSong(songId: String): void {
     this.httpRequest = this.songsService.deleteSongById(songId).subscribe(response => {
       this.toastr.showToastrSuccess(`A música ${this.Musica['nome']} foi apagada com sucesso`)
       this.route.navigate(['songs'])
-    }, err =>{
+    }, err => {
       this.toastr.showToastrError(`${err.status} - ${err.error['message']}`)
     })
   }

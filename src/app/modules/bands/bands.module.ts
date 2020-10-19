@@ -7,7 +7,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input'; 
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 
 import { BandsRoutingModule } from './bands-routing.module';
 import { BandsComponent } from './bands.component';
@@ -15,7 +16,8 @@ import { ComponentsModule } from './../../components/components.module';
 import { BandCardComponent } from './band-card/band-card.component';
 import { BandDetailComponent } from './band-detail/band-detail.component'
 import { SongsModule } from './../songs/songs.module';
-import { NewBandComponent } from './new-band/new-band.component'
+import { NewBandComponent } from './new-band/new-band.component';
+import { UpdateBandComponent } from './update-band/update-band.component'
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import { NewBandComponent } from './new-band/new-band.component'
     BandsComponent, 
     BandCardComponent, 
     BandDetailComponent, 
-    NewBandComponent
+    NewBandComponent, 
+    UpdateBandComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +39,8 @@ import { NewBandComponent } from './new-band/new-band.component'
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule
   ]
 })
 export class BandsModule { }

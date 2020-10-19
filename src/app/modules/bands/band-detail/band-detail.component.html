@@ -23,6 +23,13 @@
                 <span class="aditionalInfo">{{countSongsOnBand(Band.musicas.length)}}</span>
             </div>
             <br>
+            <button mat-mini-fab color="primary" aria-label="Atualiazar banda" (click)="openUpdateBandModal()">
+                <mat-icon>edit</mat-icon>
+            </button>
+            &nbsp;
+            <button mat-mini-fab color="warn" aria-label="Apagar banda" (click)="openConfirmModal()">
+                <mat-icon>delete</mat-icon>
+            </button>
         </mat-card>
     </div>
     <!-- Div de trazer as músicas para bandas -->
@@ -30,7 +37,7 @@
         <span class="mat-subheading-2 uppercase-text">{{titleSongsOnBand(Band.musicas.length)}}</span>
         <br>
         <div class="content" fxLayout="row wrap" fxLayoutGap="16px grid">
-            <div fxFlex="33%" fxflex.xs="100%" fxFlex.sm="50%" *ngFor="let song of Band.musicas">
+            <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="50%" *ngFor="let song of Band.musicas">
                 <app-song-card [Musica]="song" [showHeader]="false"></app-song-card>
             </div>
         </div>
