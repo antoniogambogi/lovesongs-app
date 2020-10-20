@@ -71,7 +71,7 @@ export class BandDetailComponent implements OnInit, OnDestroy {
     })
 
     dialogRef.afterClosed().subscribe(updatedBand => {
-      if(updatedBand){
+      if (updatedBand) {
         this.Band = undefined
         this.findBandByName(this.bandName)
       }

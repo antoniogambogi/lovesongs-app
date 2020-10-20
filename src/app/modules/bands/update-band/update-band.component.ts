@@ -11,7 +11,7 @@ import { MyToastrService } from 'src/app/core/services/toastr.service';
   templateUrl: './update-band.component.html',
   styleUrls: ['./update-band.component.css']
 })
-export class UpdateBandComponent implements OnInit {
+export class UpdateBandComponent implements OnInit, OnDestroy {
 
   private httpRequest: Subscription
 
@@ -33,7 +33,9 @@ export class UpdateBandComponent implements OnInit {
     this.populateBandFormGroup()
   }
 
-  //ngOnDestroy removido
+  ngOnDestroy(): void {
+    this.httpRequest.unsubscribe()
+  }
 
   initializeBandFormGroup(): void {
     this.bandFormGroup = this.builder.group({
@@ -45,7 +47,6 @@ export class UpdateBandComponent implements OnInit {
 
   populateBandFormGroup(): void {
     this.bandFormGroup.patchValue({
-      nome: this.Band['nome'],
       genero: this.Band['genero'],
       imagem: this.Band['imagem']
     })
@@ -59,11 +60,13 @@ export class UpdateBandComponent implements OnInit {
     console.log(this.Band)
     this.httpRequest = this.bandsService.updateBandById(this.Band['_id'], this.bandFormGroup.value).subscribe(response => {
       this.toastr.showToastrSuccess(`A banda ${this.Band['nome']} foi atualizada com sucesso`)
-      this.dialogRef.close(true)
+      this.closeDialog(true)
     }, err => {
       this.toastr.showToastrError(`${err.status} - ${err.error['message']}`)
       this.closeDialog()
     })
+
+    
   }
 
 }
