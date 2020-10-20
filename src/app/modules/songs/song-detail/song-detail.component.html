@@ -14,6 +14,16 @@
                 <div class="bandName routerLinkClass" [routerLink]="['/bands/detail', Musica.banda.nome]">{{Musica.banda.nome}}</div>
             </mat-card-header>
         </mat-card>
+        <br>
+        <div class="row">
+            <button mat-mini-fab color="primary" aria-label="Atualiazar música" (click)="openUpdateSongModal()">
+                <mat-icon>edit</mat-icon>
+            </button>
+            &nbsp;
+            <button mat-mini-fab color="warn" aria-label="Apagar música" (click)="openConfirmModal()">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
     </div>
     <div fxFlex="50%" fxFlex.gt-sm="75%">
         <mat-card class="mat-elevation-z0">

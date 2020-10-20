@@ -27,7 +27,16 @@ export class BandsService {
     return this.http.get<any>(`${API_URL}/banda/validarNomeBanda`, { params: myParams })
   }
 
-  findBandByName(bandName: String): Observable<HttpResponse<Banda>>{
-    return this.http.get<Banda>(`${API_URL}/banda/listarUma/${bandName}`, {observe: 'response'})
+  findBandByName(bandName: String): Observable<HttpResponse<Banda>> {
+    return this.http.get<Banda>(`${API_URL}/banda/listarUma/${bandName}`, { observe: 'response' })
+  }
+
+  updateBandById(bandId: String, body: Banda): Observable<HttpResponse<Banda>> {
+    return this.http.put<Banda>(`${API_URL}/banda/atualizar/${bandId}`, body, { observe: 'response' })
+
+  }
+
+  deleteBandById(bandId: String): Observable<HttpResponse<Banda>> {
+    return this.http.get<Banda>(`${API_URL}/banda/apagar/${bandId}`, { observe: 'response' })
   }
 }

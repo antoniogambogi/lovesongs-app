@@ -28,4 +28,17 @@ export class SongsService {
     myParams = myParams.append('nome', songName)
     return this.http.get<any>(`${API_URL}/musica/validarNomeMusica`, { params: myParams })
   }
+
+  updateSongById(songId: String, body: Musica): Observable<HttpResponse<Musica>> {
+    return this.http.put < Musica > (`${API_URL}/musica/atualizar/${songId}`, body, { observe: 'response' })
+  
 }
+
+deleteSongById(songId: String): Observable < HttpResponse < Musica >> {
+  return this.http.delete<Musica>(`${API_URL}/musica/apagar/${songId}`, { observe: 'response' })
+}
+
+}
+
+
+
